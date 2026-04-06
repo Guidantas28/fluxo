@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestão de Estoque - Fluxo+</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#03487c",
+                        "primary-light": "#055a9c",
+                        "primary-dark": "#022f52",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1a23",
+                        "neutral-50": "#f8fafc",
+                        "neutral-100": "#f1f5f9",
+                        "neutral-200": "#e2e8f0",
+                        "neutral-300": "#cbd5e1",
+                        "neutral-400": "#94a3b8",
+                        "neutral-500": "#64748b",
+                        "neutral-600": "#475569",
+                        "neutral-700": "#334155",
+                        "neutral-800": "#1e293b",
+                        "neutral-900": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light text-neutral-900 font-display antialiased min-h-screen flex overflow-hidden">
+<aside class="w-64 bg-white border-r border-neutral-200 flex flex-col h-screen shrink-0 sticky top-0 z-20">
+<div class="p-6 flex items-center gap-3 border-b border-neutral-100">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shrink-0" data-alt="Abstract blue wave logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsF7Ad-qQKmd_6bCLvMjHDmevn_C01mjYnyyYHLRbxSM8kHR6yZF-Y_pecV67hnOBFLiWcOGgBqnBDglTetLgDtJvf9EMezAMcsasPqFCJ3eGH5Mqd016iLwUe8axvFE41ividh2r7f1nycfAqFfMVBk-oVMLOxwA3_ZbXqgJ6SlRtmg6gTrgHS8NEKMMh0WzIc9yj_Y0ufLI37-Eu2aCN2KlAqqABvEQmDDGXw1gkyTxitBZ9sPLa1yWXUNhIZjnjHRLbw5-eIMB4");'></div>
+<div class="flex flex-col">
+<h1 class="text-neutral-900 text-lg font-bold leading-none">Fluxo+</h1>
+<p class="text-neutral-500 text-xs font-normal mt-1">Plano Enterprise</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto py-4 px-3 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-600 hover:bg-neutral-50 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:text-primary transition-colors">dashboard</span>
+<span class="text-sm font-medium">Painel</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined text-[24px] fill-1">inventory_2</span>
+<span class="text-sm font-medium">Estoque</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-600 hover:bg-neutral-50 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:text-primary transition-colors">shopping_cart</span>
+<span class="text-sm font-medium">Vendas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-600 hover:bg-neutral-50 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:text-primary transition-colors">account_balance</span>
+<span class="text-sm font-medium">Finanças</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-600 hover:bg-neutral-50 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:text-primary transition-colors">bar_chart</span>
+<span class="text-sm font-medium">Relatórios</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-600 hover:bg-neutral-50 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:text-primary transition-colors">group</span>
+<span class="text-sm font-medium">Equipe</span>
+</a>
+</nav>
+<div class="p-4 border-t border-neutral-100 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-600 hover:bg-neutral-50 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">Configurações</span>
+</a>
+<div class="pt-2">
+<button class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-primary-light transition-colors shadow-sm shadow-primary/30">
+                Fazer Upgrade
+            </button>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<header class="bg-white border-b border-neutral-200 h-16 flex items-center justify-between px-6 shrink-0 z-10">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold text-neutral-900">Gestão de Estoque</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-neutral-500 hover:bg-neutral-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border border-white"></span>
+</button>
+<div class="w-px h-8 bg-neutral-200"></div>
+<div class="flex items-center gap-3 cursor-pointer">
+<div class="bg-neutral-200 rounded-full size-8 overflow-hidden">
+<img alt="Profile user avatar" class="w-full h-full object-cover" data-alt="User profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnBuiciIdDW-jc8Z3X-qISPUXxRwRuL4BFDqio-OenuNiaXTvPGsDAxBP_M3emnWpct2iJFgSmvm7GOS8DCe3FXXV3DIhHEfPgQ90yxm7EeeUX-Rn9R0m34QPWmcrSRZ6FcWLBPKJSkcUAEanCwWP4-QIeapeMgef1p5a5BW4m-FkOGxIuyGTEk6VjH4X3_Yz20BGRILTISsIiyzt2J6etBShWmy6lrymWrooFyWpnG1JO6epzpmQVZ3oijhR1m5fllwawUUtuyxUw"/>
+</div>
+<div class="hidden md:block">
+<p class="text-sm font-medium text-neutral-900">Alex Morgan</p>
+<p class="text-xs text-neutral-500">Admin</p>
+</div>
+<span class="material-symbols-outlined text-neutral-400 text-sm">expand_more</span>
+</div>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-6 md:p-8">
+<div class="max-w-[1200px] mx-auto space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-neutral-500 text-sm font-medium">Total de Produtos</p>
+<h3 class="text-2xl font-bold text-neutral-900 mt-1">1.482</h3>
+</div>
+<div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-xs text-emerald-600 font-medium">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+12% vs mês anterior</span>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-neutral-500 text-sm font-medium">Estoque Baixo</p>
+<h3 class="text-2xl font-bold text-neutral-900 mt-1">24</h3>
+</div>
+<div class="p-2 bg-orange-50 text-orange-600 rounded-lg">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-xs text-orange-600 font-medium">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+<span>Ação necessária</span>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-neutral-500 text-sm font-medium">Valor Total</p>
+<h3 class="text-2xl font-bold text-neutral-900 mt-1">R$ 324k</h3>
+</div>
+<div class="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
+<span class="material-symbols-outlined text-[20px]">attach_money</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-xs text-neutral-500 font-medium">
+<span>Atualizado há 2 min</span>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-neutral-500 text-sm font-medium">Categorias</p>
+<h3 class="text-2xl font-bold text-neutral-900 mt-1">18</h3>
+</div>
+<div class="p-2 bg-purple-50 text-purple-600 rounded-lg">
+<span class="material-symbols-outlined text-[20px]">category</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-xs text-neutral-500 font-medium">
+<span>Todas ativas</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex-1 w-full md:max-w-md relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-neutral-400">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2.5 border border-neutral-200 rounded-lg leading-5 bg-white placeholder-neutral-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-shadow shadow-sm" placeholder="Buscar produtos..." type="text"/>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<button class="flex items-center justify-center px-4 py-2.5 border border-neutral-200 rounded-lg bg-white text-neutral-700 text-sm font-medium hover:bg-neutral-50 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[20px] mr-2">filter_list</span>
+                        Filtrar
+                    </button>
+<button class="flex items-center justify-center px-4 py-2.5 border border-neutral-200 rounded-lg bg-white text-neutral-700 text-sm font-medium hover:bg-neutral-50 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[20px] mr-2">download</span>
+                        Exportar
+                    </button>
+<button class="flex items-center justify-center px-4 py-2.5 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary-light shadow-sm shadow-primary/30 transition-colors ml-auto md:ml-0">
+<span class="material-symbols-outlined text-[20px] mr-2">add</span>
+                        Novo Produto
+                    </button>
+</div>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-primary text-white shadow-sm whitespace-nowrap">Todos Produtos</button>
+<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-neutral-200 text-neutral-600 hover:bg-neutral-50 hover:border-neutral-300 transition-colors whitespace-nowrap">Eletrônicos</button>
+<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-neutral-200 text-neutral-600 hover:bg-neutral-50 hover:border-neutral-300 transition-colors whitespace-nowrap">Material de Escritório</button>
+<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-neutral-200 text-neutral-600 hover:bg-neutral-50 hover:border-neutral-300 transition-colors whitespace-nowrap">Móveis</button>
+<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-neutral-200 text-neutral-600 hover:bg-neutral-50 hover:border-neutral-300 transition-colors whitespace-nowrap">Acessórios</button>
+<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-neutral-200 text-neutral-600 hover:bg-neutral-50 hover:border-neutral-300 transition-colors whitespace-nowrap">Estoque Baixo</button>
+</div>
+<div class="bg-white border border-neutral-200 rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-neutral-200">
+<thead class="bg-neutral-50">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider w-10" scope="col">
+<input class="rounded border-neutral-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider" scope="col">Produto</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider" scope="col">SKU</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider" scope="col">Categoria</th>
+<th class="px-6 py-3 text-right text-xs font-semibold text-neutral-500 uppercase tracking-wider" scope="col">Preço</th>
+<th class="px-6 py-3 text-center text-xs font-semibold text-neutral-500 uppercase tracking-wider" scope="col">Estoque Atual</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider" scope="col">Status</th>
+<th class="relative px-6 py-3" scope="col">
+<span class="sr-only">Ações</span>
+</th>
+</tr>
+</thead>
+<tbody class="bg-white divide-y divide-neutral-200">
+<tr class="hover:bg-neutral-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<input class="rounded border-neutral-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 shrink-0 rounded-lg bg-neutral-100 flex items-center justify-center">
+<img alt="Red sneaker product" class="h-8 w-8 object-contain" data-alt="Red Nike shoe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsRtboqHw-PM9-6ntHZF8L90y5klmc0GRrvNkl0DkSG3PhNrN5ildtI7TJTjNUgqQZkIPJpfCZdIVPzYrgT2pIfEB3XX_k_-pnxI3YP7vXpKS4HeCq88TYyPh2-_fbCm8nOQMs4QDbtGlvKlLtuZsLWFu9K7SA3sQtdpmSQTjZz5ElWsJzqdrXomZfmCpLRMACSDQW4Gn4KVjPAQm9_T6eojp20M7dTo7m-XhXSGjKnWAkqJJBE36PUtProtHg1wPnDGC_OYioRTQn"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-neutral-900">Nike Air Max 270</div>
+<div class="text-xs text-neutral-500">Variante: Vermelho/Preto</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500 font-mono">NK-AM-270-RB</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-600">Calçados</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-900 text-right font-medium">R$ 750,00</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-600 text-center">45</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-emerald-100 text-emerald-800">
+                                    Em Estoque
+                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-neutral-400 hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-neutral-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<input class="rounded border-neutral-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 shrink-0 rounded-lg bg-neutral-100 flex items-center justify-center p-1">
+<img alt="Instant camera product" class="h-full w-full object-contain mix-blend-multiply" data-alt="Polaroid camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcuDv999UB-v_TSBR1qqzQrDgOtv278QdSFjosd38OIEIrdhHOSs2n1bHf8FhxzsVqiX9ZASyKSmXiZpjp29M8Nn8RD-Jw7aT_IU7YpL8TeIFZnbxMob_w2tnsNzYL6cQfGVuL985pdJEHy1jYQi4miKhg_lT9mCbriSBh1PXw-j9TgXvKkoYkl3bFHtTXM3vVzoelJbJxhA___Pb0exnZ3El9p_XoCdWPD-t3aNEiJSLzptWSalyrAKkI9w3XkKKWpDUmK9q_NfsD"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-neutral-900">Polaroid Go</div>
+<div class="text-xs text-neutral-500">Edição Branca</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500 font-mono">PL-GO-WHT</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-600">Eletrônicos</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-900 text-right font-medium">R$ 550,00</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-600 text-center">12</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-emerald-100 text-emerald-800">
+                                    Em Estoque
+                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-neutral-400 hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-neutral-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<input class="rounded border-neutral-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 shrink-0 rounded-lg bg-neutral-100 flex items-center justify-center p-1">
+<img alt="Office Chair" class="h-full w-full object-contain mix-blend-multiply" data-alt="Ergonomic chair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB__15Sz5KfAjuWU9GOcB7ZOCf1xX-XMUZAfpBVarIYSl6xfE7-jGBBM2Xa7PIr3pc7GMdyJC0hiIB_lrJekcAiOzzyiTBpHT7LMqpEzMsZ4qKIN4BzAE4fSRwHKaOMnYf3J9CglJM8gcCjlgIULm5eXS7SDVuWBLw829okudDH6uG1jrHNIVLbEx4JsU2GCwbfq4xmMae4hXZioHHk4YnFJ7kSO0IZjxSgUehNHxW3_GrlE95wvCUa-n1HOkDxIxTVZVyAbAO8ZSLW"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-neutral-900">ErgoChair Pro</div>
+<div class="text-xs text-neutral-500">Mesh / Cinza</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500 font-mono">EC-PRO-GRY</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-600">Móveis</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-900 text-right font-medium">R$ 1.850,00</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-600 text-center">3</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-800">
+                                    Estoque Baixo
+                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-neutral-400 hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-neutral-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<input class="rounded border-neutral-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 shrink-0 rounded-lg bg-neutral-100 flex items-center justify-center p-1">
+<img alt="Notebook" class="h-full w-full object-contain mix-blend-multiply" data-alt="Leather notebook" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN6KhGJZwvzDYimqh1qrig_OQtw-xadIgpck1oaenJTGYRmPU7CsCjHZ_cyblgkKPWehvWtKtqa97NqL-H5Mp-KCPMNvS-3icGpCT23TNQ17QBvjGaBxXmMjIdZiYLDD27TqbsWOgL01ff8rxC1X4_CzxvdlgRtXjSkaNE_gUoztjQHXmKBVYE2jPsDmVtrfQiYwlxZMB0kCCLp1l0DclSvzmULBZryrolqVl4kEWsd_FcPpyQeID6wa1hn5uTYYuf7PRbKAcXTBBJ"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-neutral-900">Moleskine Classic</div>
+<div class="text-xs text-neutral-500">Capa Dura / Preto</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500 font-mono">MS-CLS-BLK</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-600">Material de Escritório</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-900 text-right font-medium">R$ 125,00</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-600 text-center">128</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-emerald-100 text-emerald-800">
+                                    Em Estoque
+                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-neutral-400 hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-neutral-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<input class="rounded border-neutral-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 shrink-0 rounded-lg bg-neutral-100 flex items-center justify-center p-1">
+<img alt="Headphones" class="h-full w-full object-contain mix-blend-multiply" data-alt="Over-ear headphones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBreo8i9IEFWRLR-ZBELTYj-i5DeQ996Ihd96WQS8h0Jcvbxx0i6Y1czRp4h8ZlmJEimulndpPSz5pEnrc1at33qLuoboCcSEQoYV2VfmBMQZzjMpvyrBDKfiVnZsXScZ7DPQRBHyR7hTSlLyUO7jQzJuBOQAEp-voht_S0PFdLpA5txBXHlwfF0le127Sg-I6U1e3xIy1iCX6-xp5B2noZti6q7sgqJ9QUIafYWUMR-qgjnVXigZrHmh06Is9vPEi-9-9Is90qMadE"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-neutral-900">Sony WH-1000XM5</div>
+<div class="text-xs text-neutral-500">Cancelamento de Ruído</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500 font-mono">SN-XM5-SLV</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-600">Eletrônicos</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-900 text-right font-medium">R$ 2.100,00</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-600 text-center">0</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                    Esgotado
+                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-neutral-400 hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-white px-4 py-3 flex items-center justify-between border-t border-neutral-200 sm:px-6">
+<div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+<div>
+<p class="text-sm text-neutral-700">
+                                Mostrando <span class="font-medium">1</span> de <span class="font-medium">5</span> de <span class="font-medium">1.482</span> resultados
+                            </p>
+</div>
+<div>
+<nav aria-label="Pagination" class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+<a class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-neutral-300 bg-white text-sm font-medium text-neutral-500 hover:bg-neutral-50" href="#">
+<span class="sr-only">Anterior</span>
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</a>
+<a aria-current="page" class="z-10 bg-primary/10 border-primary text-primary relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                    1
+                                </a>
+<a class="bg-white border-neutral-300 text-neutral-500 hover:bg-neutral-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                    2
+                                </a>
+<a class="bg-white border-neutral-300 text-neutral-500 hover:bg-neutral-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium" href="#">
+                                    3
+                                </a>
+<span class="relative inline-flex items-center px-4 py-2 border border-neutral-300 bg-white text-sm font-medium text-neutral-700">
+                                    ...
+                                </span>
+<a class="bg-white border-neutral-300 text-neutral-500 hover:bg-neutral-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium" href="#">
+                                    8
+                                </a>
+<a class="bg-white border-neutral-300 text-neutral-500 hover:bg-neutral-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                    9
+                                </a>
+<a class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-neutral-300 bg-white text-sm font-medium text-neutral-500 hover:bg-neutral-50" href="#">
+<span class="sr-only">Próximo</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+</body></html>

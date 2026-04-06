@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard Executivo Fluxo+</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#03487c",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1a23",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display antialiased min-h-screen flex flex-col">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary dark:text-blue-400">
+<div class="size-8 flex items-center justify-center">
+<span class="material-symbols-outlined !text-3xl">grid_view</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Fluxo+</h2>
+</div>
+<label class="flex flex-col min-w-40 !h-10 max-w-64 hidden md:flex">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus-within:ring-2 focus-within:ring-primary/20">
+<div class="text-slate-500 dark:text-slate-400 flex items-center justify-center pl-3 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-slate-400 px-2 rounded-l-none border-l-0 text-sm font-normal leading-normal" placeholder="Buscar..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-8 items-center">
+<div class="hidden lg:flex items-center gap-6">
+<a class="text-slate-900 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Vendas</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Estoque</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Finanças</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Relatórios</a>
+</div>
+<div class="flex gap-3 items-center">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white hover:bg-primary/90 transition-colors text-sm font-bold leading-normal tracking-[0.015em] shadow-sm">
+<span class="truncate">Nova Venda</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Novo Produto</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 border border-slate-200 dark:border-slate-700 shadow-sm cursor-pointer hover:ring-2 hover:ring-primary/20 transition-all" data-alt="User profile picture of a man smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKdguOTzw249OftfPlkiZaOyj-xk7t_quzgFpCxgK4Rh5QJUFmzIxnyuwdecNN7pRwQkvMhcU3QDU-YUtqCBJ0jLjv_YgSHcOQatPfii_NoV8tLKqNKGxv0xXCu8__EKqBtRSaOnEuao66sTHTxvwxFJwSwF8Lwaztpap5MBO62frH2L-5j9L0-oAjwXPW4XFvGM1Qf37imi1NgVYiI-upvhCtKlxY3x0WC1oGkEznhmABYGZqAIbYj_IMDlWY4NFL6tbV7c7psOvL");'></div>
+</div>
+</header>
+<div class="px-4 md:px-10 py-8 flex flex-1 justify-center">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1 gap-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="flex flex-col gap-3 rounded-xl p-5 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-blue-50 dark:bg-primary/20 rounded-lg text-primary dark:text-blue-300">
+<span class="material-symbols-outlined text-xl">payments</span>
+</div>
+<span class="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 12%
+                                </span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Vendas de Hoje</p>
+<p class="text-slate-900 dark:text-white text-2xl font-bold mt-1">R$ 1.240,50</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl p-5 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-blue-50 dark:bg-primary/20 rounded-lg text-primary dark:text-blue-300">
+<span class="material-symbols-outlined text-xl">account_balance</span>
+</div>
+<span class="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 5%
+                                </span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Fluxo de Caixa</p>
+<p class="text-slate-900 dark:text-white text-2xl font-bold mt-1">R$ 14.300,00</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl p-5 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-amber-50 dark:bg-amber-900/20 rounded-lg text-amber-600 dark:text-amber-400">
+<span class="material-symbols-outlined text-xl">inventory_2</span>
+</div>
+<span class="bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 text-xs font-bold px-2 py-1 rounded-full">Alerta</span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Alertas de Estoque Baixo</p>
+<p class="text-slate-900 dark:text-white text-2xl font-bold mt-1">5 Itens</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl p-5 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-purple-600 dark:text-purple-400">
+<span class="material-symbols-outlined text-xl">star</span>
+</div>
+<span class="text-slate-400 dark:text-slate-500 text-xs font-medium px-2 py-1">Mais Vendido</span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Mais Vendidos</p>
+<p class="text-slate-900 dark:text-white text-lg font-bold mt-1 truncate">Mouse Sem Fio</p>
+<p class="text-slate-400 dark:text-slate-500 text-xs mt-0.5">24 unidades vendidas hoje</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm p-6 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Receita Semanal</h3>
+<div class="flex items-center gap-2 mt-1">
+<p class="text-3xl font-bold text-slate-900 dark:text-white">R$ 8.450,00</p>
+<span class="flex items-center text-green-600 dark:text-green-400 text-sm font-medium bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded-md">
+                                            +8.4%
+                                        </span>
+</div>
+<p class="text-slate-400 text-xs mt-1">vs. últimos 7 dias</p>
+</div>
+<select class="bg-slate-50 dark:bg-slate-700 border-none text-slate-600 dark:text-slate-200 text-sm rounded-lg focus:ring-primary py-2 pl-3 pr-8 cursor-pointer">
+<option>Últimos 7 Dias</option>
+<option>Últimos 30 Dias</option>
+<option>Este Ano</option>
+</select>
+</div>
+<div class="flex-1 w-full h-[240px] relative">
+<svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 800 200">
+<defs>
+<linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#03487c" stop-opacity="0.1"></stop>
+<stop offset="100%" stop-color="#03487c" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<line class="dark:stroke-slate-700" stroke="#e2e8f0" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="0" y2="0"></line>
+<line class="dark:stroke-slate-700" stroke="#e2e8f0" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="50" y2="50"></line>
+<line class="dark:stroke-slate-700" stroke="#e2e8f0" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="100" y2="100"></line>
+<line class="dark:stroke-slate-700" stroke="#e2e8f0" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="150" y2="150"></line>
+<path d="M0,120 Q100,100 200,130 T400,90 T600,60 T800,30 V200 H0 Z" fill="url(#chartGradient)"></path>
+<path class="dark:stroke-blue-400 vector-effect-non-scaling-stroke" d="M0,120 Q100,100 200,130 T400,90 T600,60 T800,30" fill="none" stroke="#03487c" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<circle class="dark:fill-blue-400" cx="0" cy="120" fill="#03487c" r="4"></circle>
+<circle class="dark:fill-blue-400" cx="200" cy="130" fill="#03487c" r="4"></circle>
+<circle class="dark:fill-blue-400" cx="400" cy="90" fill="#03487c" r="4"></circle>
+<circle class="dark:fill-blue-400" cx="600" cy="60" fill="#03487c" r="4"></circle>
+<circle class="dark:fill-blue-400" cx="800" cy="30" fill="#03487c" r="4"></circle>
+</svg>
+</div>
+<div class="flex justify-between mt-4 text-xs font-medium text-slate-400 uppercase tracking-wider">
+<span>Seg</span>
+<span>Ter</span>
+<span>Qua</span>
+<span>Qui</span>
+<span>Sex</span>
+<span>Sáb</span>
+<span>Dom</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm p-6 flex flex-col gap-6">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Ações Rápidas</h3>
+<div class="flex flex-col gap-3">
+<button class="flex items-center justify-between p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors group">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-blue-50 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-blue-300">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</div>
+<div class="text-left">
+<p class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Criar Fatura</p>
+<p class="text-xs text-slate-500">Cobrar um cliente</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+<button class="flex items-center justify-between p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors group">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-blue-50 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-blue-300">
+<span class="material-symbols-outlined text-sm">inventory</span>
+</div>
+<div class="text-left">
+<p class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Conferir Estoque</p>
+<p class="text-xs text-slate-500">Atualizar contagem</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+<button class="flex items-center justify-between p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors group">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-blue-50 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-blue-300">
+<span class="material-symbols-outlined text-sm">person_add</span>
+</div>
+<div class="text-left">
+<p class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Adicionar Cliente</p>
+<p class="text-xs text-slate-500">Novo perfil de cliente</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+</div>
+<div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-700">
+<div class="bg-gradient-to-br from-primary to-blue-600 rounded-lg p-4 text-white">
+<p class="font-bold text-sm mb-1">Plano Pro</p>
+<p class="text-xs text-blue-100 mb-3">Sua assinatura renova em 3 dias.</p>
+<button class="text-xs bg-white/20 hover:bg-white/30 transition-colors px-3 py-1.5 rounded font-medium w-full">Gerenciar Cobrança</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Pedidos Recentes</h3>
+<button class="text-primary hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-semibold flex items-center gap-1">
+                                Ver Todos <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider">
+<th class="px-6 py-3 font-medium">ID do Pedido</th>
+<th class="px-6 py-3 font-medium">Cliente</th>
+<th class="px-6 py-3 font-medium">Status</th>
+<th class="px-6 py-3 font-medium text-right">Valor</th>
+<th class="px-6 py-3 font-medium text-right">Data</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-700">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors group">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">#ORD-001</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-xs font-bold text-indigo-700 dark:text-indigo-300">A</div>
+                                                Acme Corp
+                                            </div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                                Concluído
+                                            </span>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white text-right">R$ 450,00</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400 text-right">24 Out</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors group">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">#ORD-002</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-pink-100 dark:bg-pink-900/50 flex items-center justify-center text-xs font-bold text-pink-700 dark:text-pink-300">G</div>
+                                                Globex Inc
+                                            </div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400">
+                                                Pendente
+                                            </span>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white text-right">R$ 1.200,00</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400 text-right">24 Out</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors group">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">#ORD-003</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-xs font-bold text-blue-700 dark:text-blue-300">S</div>
+                                                Soylent Corp
+                                            </div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+                                                Enviado
+                                            </span>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white text-right">R$ 320,50</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400 text-right">23 Out</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors group">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">#ORD-004</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center text-xs font-bold text-teal-700 dark:text-teal-300">U</div>
+                                                Umbrella Corp
+                                            </div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                                Concluído
+                                            </span>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white text-right">R$ 850,00</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400 text-right">23 Out</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors group">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">#ORD-005</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center text-xs font-bold text-purple-700 dark:text-purple-300">C</div>
+                                                Cyberdyne
+                                            </div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400">
+                                                Processando
+                                            </span>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white text-right">R$ 2.100,00</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400 text-right">22 Out</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

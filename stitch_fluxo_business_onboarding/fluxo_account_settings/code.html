@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configurações da Conta Fluxo+</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#03487c",
+                        "primary-hover": "#02365d",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b",
+                        "text-main": "#0f172a",
+                        "text-sub": "#64748b",
+                        "border-color": "#e2e8f0",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-slate-100 min-h-screen flex flex-col antialiased">
+<header class="sticky top-0 z-50 w-full border-b border-border-color bg-surface-light/80 backdrop-blur-md dark:bg-surface-dark/80 dark:border-slate-700">
+<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2.5 text-primary dark:text-sky-400 hover:opacity-80 transition-opacity" href="#">
+<div class="size-8 text-primary dark:text-sky-400">
+<svg class="h-full w-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-tight text-text-main dark:text-slate-100">Fluxo+</span>
+</a>
+<div class="hidden md:flex items-center rounded-lg bg-slate-100 dark:bg-slate-800 px-3 py-1.5 focus-within:ring-2 focus-within:ring-primary/20">
+<span class="material-symbols-outlined text-slate-400 text-[20px]">search</span>
+<input class="w-64 border-none bg-transparent py-1 text-sm text-text-main placeholder-slate-400 focus:outline-none focus:ring-0 dark:text-slate-200" placeholder="Buscar..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="group flex items-center justify-center rounded-lg p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+<span class="sr-only">Notificações</span>
+</button>
+<button class="group flex items-center justify-center rounded-lg p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-[24px]">help</span>
+<span class="sr-only">Ajuda</span>
+</button>
+<div class="ml-2 h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
+<button class="flex items-center gap-2 rounded-full pl-2 transition hover:bg-slate-100 dark:hover:bg-slate-800">
+<div class="h-9 w-9 overflow-hidden rounded-full border border-slate-200 dark:border-slate-700">
+<img alt="User avatar showing a smiling man in a suit" class="h-full w-full object-cover" data-alt="Profile picture of the current user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0sRpXVrVgE0lN74TN8OpELpJFtx2GEJSxclfm4pwRgkibjluEw2SAX3DdDGRN0E-Bka3NDKf4GUMf5pWOoC4PzyuyT_a2Io-bC0wEqsVWpSx3ZRkl7xYsFd0Bx_xFNgMWjvH1VHBAmQIIAZMzj0k9D_bvapIMOqg-rmTNQSZjqvy375SnXDfDFfYa2CJ3ICS_NctRxKjnJ1rLbkMqn7675I1u2QXn6WYNg2YWOLcPV45JRMMcX-nWLfVMuw_zLGMFzAWe_g6CrqhR"/>
+</div>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 py-8">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-text-main dark:text-white">Configurações da Conta</h1>
+<p class="mt-2 text-text-sub dark:text-slate-400">Gerencie o perfil do seu negócio, acesso da equipe e preferências de notificação.</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<nav class="w-full lg:w-64 flex-none space-y-1">
+<a class="group flex items-center gap-3 rounded-lg bg-primary/10 px-3 py-2.5 text-sm font-semibold text-primary dark:bg-primary/20 dark:text-sky-300" href="#">
+<span class="material-symbols-outlined text-[20px]">business</span>
+                    Dados do Negócio
+                </a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-text-sub hover:bg-slate-50 hover:text-text-main dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+                    Usuários
+                </a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-text-sub hover:bg-slate-50 hover:text-text-main dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200" href="#">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+                    Notificações
+                </a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-text-sub hover:bg-slate-50 hover:text-text-main dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200" href="#">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+                    Segurança
+                </a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-text-sub hover:bg-slate-50 hover:text-text-main dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200" href="#">
+<span class="material-symbols-outlined text-[20px]">credit_card</span>
+                    Faturamento
+                </a>
+</nav>
+<div class="flex-1 space-y-8">
+<section class="rounded-xl border border-border-color bg-surface-light shadow-sm dark:border-slate-700 dark:bg-surface-dark">
+<div class="border-b border-border-color px-6 py-4 dark:border-slate-700">
+<h2 class="text-lg font-semibold text-text-main dark:text-white">Perfil da Empresa</h2>
+<p class="text-sm text-text-sub dark:text-slate-400">Atualize as informações públicas da sua empresa.</p>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-6 mb-8">
+<div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-4 border-slate-100 dark:border-slate-700 shadow-sm">
+<img alt="Modern office building exterior representing company profile" class="h-full w-full object-cover" data-alt="Company logo showing a modern abstract building" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMbqWq8WIpj34ZPQcdOgg8OLCaK--lAtPf09iuVm5MEyEVzJaYeU0yZXvB8fKpi6JTmXVBWJu2mYQoByki3hHilWYpJLEWKZIfvMv9oKrYsy5XSO2RC8ONr1Es0-Ok1U1-rKpg2_7f_m648d0pWWQ7eOSwKtoKNx9BzODMmGns1_Uez40QFdNXH4mtEUHklkxpkIYqgk5OADjf2JnIhWdVQfsItzlH0b5tvKShkpvMv7In_1lPdDani3mu4eXj2D89lMtM37OS5Umu"/>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-medium text-text-main dark:text-slate-200">Logotipo da Empresa</h3>
+<div class="flex gap-3">
+<button class="rounded-lg bg-surface-light px-4 py-2 text-sm font-semibold text-text-main ring-1 ring-inset ring-slate-300 hover:bg-slate-50 dark:bg-slate-800 dark:text-white dark:ring-slate-600 dark:hover:bg-slate-700">Alterar</button>
+<button class="rounded-lg px-4 py-2 text-sm font-semibold text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20">Remover</button>
+</div>
+<p class="text-xs text-text-sub dark:text-slate-500">JPG, GIF ou PNG. Máx 1MB.</p>
+</div>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+<div>
+<label class="block text-sm font-medium leading-6 text-text-main dark:text-slate-200" for="company-name">Nome da Empresa</label>
+<div class="mt-2">
+<input class="block w-full rounded-lg border-0 py-2.5 text-text-main shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-600 dark:text-white sm:text-sm sm:leading-6" id="company-name" name="company-name" type="text" value="Acme Corp"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium leading-6 text-text-main dark:text-slate-200" for="industry">Setor</label>
+<div class="mt-2">
+<select class="block w-full rounded-lg border-0 py-2.5 text-text-main shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-600 dark:text-white sm:text-sm sm:leading-6" id="industry" name="industry">
+<option>Varejo</option>
+<option selected="">Indústria</option>
+<option>Tecnologia</option>
+<option>Serviços</option>
+</select>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium leading-6 text-text-main dark:text-slate-200" for="about">Sobre</label>
+<div class="mt-2">
+<textarea class="block w-full rounded-lg border-0 py-2.5 text-text-main shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-600 dark:text-white sm:text-sm sm:leading-6" id="about" name="about" rows="3">A Acme Corp é líder no fornecimento de widgets e gadgets para o mundo moderno.</textarea>
+</div>
+<p class="mt-2 text-xs text-text-sub dark:text-slate-500">Breve descrição para o seu perfil público.</p>
+</div>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+<div>
+<label class="block text-sm font-medium leading-6 text-text-main dark:text-slate-200" for="email">E-mail de Contato</label>
+<div class="mt-2 relative rounded-lg shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="material-symbols-outlined text-slate-400 text-[20px]">mail</span>
+</div>
+<input class="block w-full rounded-lg border-0 py-2.5 pl-10 text-text-main ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-600 dark:text-white sm:text-sm sm:leading-6" id="email" name="email" type="email" value="admin@acmecorp.com"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium leading-6 text-text-main dark:text-slate-200" for="website">Site</label>
+<div class="mt-2 relative rounded-lg shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="material-symbols-outlined text-slate-400 text-[20px]">language</span>
+</div>
+<input class="block w-full rounded-lg border-0 py-2.5 pl-10 text-text-main ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-600 dark:text-white sm:text-sm sm:leading-6" id="website" name="website" type="text" value="www.acmecorp.com"/>
+</div>
+</div>
+</div>
+</form>
+</div>
+<div class="flex items-center justify-end gap-x-4 border-t border-border-color bg-slate-50/50 px-6 py-4 dark:border-slate-700 dark:bg-slate-800/50 rounded-b-xl">
+<button class="text-sm font-semibold leading-6 text-text-main hover:text-primary dark:text-slate-300 dark:hover:text-white" type="button">Cancelar</button>
+<button class="rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors" type="submit">Salvar Alterações</button>
+</div>
+</section>
+<section class="rounded-xl border border-border-color bg-surface-light shadow-sm dark:border-slate-700 dark:bg-surface-dark">
+<div class="border-b border-border-color px-6 py-4 dark:border-slate-700">
+<h2 class="text-lg font-semibold text-text-main dark:text-white">Preferências do Sistema</h2>
+<p class="text-sm text-text-sub dark:text-slate-400">Configure como o Fluxo+ funciona para sua equipe.</p>
+</div>
+<div class="p-6 space-y-6">
+<div class="flex items-start justify-between gap-4">
+<div>
+<h4 class="text-sm font-medium text-text-main dark:text-white">Alertas de Estoque</h4>
+<p class="text-sm text-text-sub dark:text-slate-400">Receba notificações quando os níveis de estoque estiverem baixos.</p>
+</div>
+<label class="relative inline-flex cursor-pointer items-center">
+<input checked="" class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-slate-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:bg-slate-700 dark:border-gray-600"></div>
+</label>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-700 pt-6 flex items-start justify-between gap-4">
+<div>
+<h4 class="text-sm font-medium text-text-main dark:text-white">Faturamento Automático</h4>
+<p class="text-sm text-text-sub dark:text-slate-400">Gerar faturas automaticamente para vendas recorrentes.</p>
+</div>
+<label class="relative inline-flex cursor-pointer items-center">
+<input class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-slate-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:bg-slate-700 dark:border-gray-600"></div>
+</label>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-700 pt-6">
+<h4 class="text-sm font-medium text-text-main dark:text-white mb-4">Moeda e Localidade</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium leading-6 text-text-main dark:text-slate-200" for="currency">Moeda Padrão</label>
+<select class="mt-2 block w-full rounded-lg border-0 py-2.5 text-text-main shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-600 dark:text-white sm:text-sm sm:leading-6" id="currency">
+<option>USD ($)</option>
+<option>EUR (€)</option>
+<option>GBP (£)</option>
+<option selected="">BRL (R$)</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium leading-6 text-text-main dark:text-slate-200" for="timezone">Fuso Horário</label>
+<select class="mt-2 block w-full rounded-lg border-0 py-2.5 text-text-main shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-600 dark:text-white sm:text-sm sm:leading-6" id="timezone">
+<option selected="">(GMT-03:00) Brasília</option>
+<option>(GMT-04:00) Manaus</option>
+<option>(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="rounded-xl border border-red-200 bg-red-50/50 dark:border-red-900/50 dark:bg-red-900/10">
+<div class="px-6 py-4">
+<h2 class="text-lg font-semibold text-red-700 dark:text-red-400">Zona de Perigo</h2>
+<div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="text-sm text-red-600 dark:text-red-300/80">
+<p class="font-medium">Excluir Conta Empresarial</p>
+<p>Depois de excluir sua conta, não há como voltar atrás. Por favor, tenha certeza.</p>
+</div>
+<button class="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 whitespace-nowrap" type="button">Excluir Conta</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-12 border-t border-border-color py-8 bg-surface-light dark:bg-surface-dark dark:border-slate-700">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="text-primary dark:text-sky-400 font-bold">Fluxo+</span>
+<span class="text-sm text-text-sub dark:text-slate-500">© 2024 Todos os direitos reservados.</span>
+</div>
+<div class="flex gap-6 text-sm text-text-sub dark:text-slate-400">
+<a class="hover:text-primary dark:hover:text-white" href="#">Política de Privacidade</a>
+<a class="hover:text-primary dark:hover:text-white" href="#">Termos de Serviço</a>
+<a class="hover:text-primary dark:hover:text-white" href="#">Suporte</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

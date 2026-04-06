@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+/* Tema escuro manual: classe `dark` no <html> (não misturar só com prefers-color-scheme) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Design system Fluxo+ (referência: stitch_fluxo_business_onboarding) */
+@theme inline {
+  --color-primary: #03487c;
+  --color-primary-light: #055a9c;
+  --color-primary-dark: #022f52;
+  --color-background-light: #f5f7f8;
+  --color-background-dark: #0f1a23;
+  --color-success: #16a34a;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  background-color: var(--color-background-light);
+  color: #0f172a;
+  font-family: var(--font-sans);
+}
+
+html.dark body {
+  background-color: var(--color-background-dark);
+  color: #e2e8f0;
+}

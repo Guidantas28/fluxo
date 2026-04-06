@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fluxo+ Criar Novo Produto</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#03487c",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1a23",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col">
+<nav class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md">
+<div class="px-6 h-16 flex items-center justify-between max-w-[1200px] mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">dataset</span>
+<span class="font-bold text-xl tracking-tight text-slate-900 dark:text-white">Fluxo+</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden border border-slate-300">
+<img alt="User Avatar" class="h-full w-full object-cover" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVhC5CXfyG9du-K50tGnkQpSdfhhyyRG-jC0RgGW9nSSQNGMOwkGQgt-1QwhUFkKnDHtsIEgSv5JV-0asgI_z3EBh2004JA4fIH6GCNnFaJo08EPY_51DCohol-zKipsf507sXdwDe5CZ1nyI4xOTWy3DAZ1aVXJ4Mwoz00DBxSwTVL8E_s9Lt_GuFrz1gi5Iv9-F0mmOqQLpl5Ev7MrRRmcjth6hMnFs47Zq9nCGZTeTMP7nzIQit5dw3pSI_zRSwM2YwJTHo4MH1"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="flex-1 flex flex-col items-center justify-start py-10 px-4 sm:px-6">
+<div class="w-full max-w-[800px] mb-6 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary flex items-center gap-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                Voltar para o Inventário
+            </a>
+</div>
+<div class="w-full max-w-[800px] bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="px-8 pt-8 pb-4 border-b border-slate-100 dark:border-slate-800/50">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-white text-2xl font-bold leading-tight">Adicionar Novo Produto</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Insira os detalhes do produto abaixo para adicioná-lo ao seu sistema de controle de estoque.</p>
+</div>
+<div class="hidden sm:block">
+<span class="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-900/30 px-2 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-blue-700/10 dark:ring-blue-400/20">
+                            Rascunho
+                        </span>
+</div>
+</div>
+</div>
+<form class="px-8 py-6 space-y-8">
+<div class="space-y-6">
+<h3 class="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary">inventory_2</span>
+                        Identidade do Produto
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="col-span-2 md:col-span-1">
+<label class="block text-sm font-medium leading-6 text-slate-900 dark:text-slate-200 mb-2">Nome</label>
+<div class="relative">
+<input class="block w-full rounded-lg border-0 py-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-700 dark:text-white sm:text-sm sm:leading-6 transition-all" placeholder="ex: Mouse Sem Fio Ergonômico" type="text"/>
+</div>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-sm font-medium leading-6 text-slate-900 dark:text-slate-200 mb-2">SKU</label>
+<div class="relative">
+<input class="block w-full rounded-lg border-0 py-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-700 dark:text-white sm:text-sm sm:leading-6 transition-all font-mono" placeholder="WM-2024-X" type="text"/>
+</div>
+</div>
+<div class="col-span-2">
+<label class="block text-sm font-medium leading-6 text-slate-900 dark:text-slate-200 mb-2">Descrição <span class="text-slate-400 font-normal">(Opcional)</span></label>
+<textarea class="block w-full rounded-lg border-0 py-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-700 dark:text-white sm:text-sm sm:leading-6 resize-none transition-all" placeholder="Descreva as características do produto, garantia e especificações..." rows="4"></textarea>
+</div>
+</div>
+</div>
+<hr class="border-slate-100 dark:border-slate-800"/>
+<div class="space-y-6">
+<h3 class="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary">attach_money</span>
+                        Preço e Custo
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="relative">
+<label class="block text-sm font-medium leading-6 text-slate-900 dark:text-slate-200 mb-2">Preço de Venda</label>
+<div class="relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-500 sm:text-sm">R$</span>
+</div>
+<input class="block w-full rounded-lg border-0 py-3 pl-9 text-slate-900 ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-700 dark:text-white sm:text-sm sm:leading-6 transition-all" placeholder="0,00" type="text"/>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+<span class="text-slate-500 sm:text-sm">BRL</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<label class="block text-sm font-medium leading-6 text-slate-900 dark:text-slate-200 mb-2">Custo</label>
+<div class="relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-500 sm:text-sm">R$</span>
+</div>
+<input class="block w-full rounded-lg border-0 py-3 pl-9 text-slate-900 ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-700 dark:text-white sm:text-sm sm:leading-6 transition-all" placeholder="0,00" type="text"/>
+</div>
+<p class="mt-2 text-xs text-slate-500">Usado para calcular margens de lucro.</p>
+</div>
+</div>
+</div>
+<hr class="border-slate-100 dark:border-slate-800"/>
+<div class="space-y-6">
+<h3 class="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary">warehouse</span>
+                        Controle de Estoque
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium leading-6 text-slate-900 dark:text-slate-200 mb-2">Estoque Inicial</label>
+<div class="flex items-center">
+<button class="flex items-center justify-center w-10 h-11 border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 rounded-l-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300" type="button">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<input class="block w-full text-center border-y border-slate-300 dark:border-slate-700 h-11 py-0 text-slate-900 focus:ring-0 focus:border-primary dark:bg-slate-800 dark:text-white sm:text-sm transition-all" placeholder="0" type="number" value="0"/>
+<button class="flex items-center justify-center w-10 h-11 border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 rounded-r-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium leading-6 text-slate-900 dark:text-slate-200 mb-2">Estoque Mínimo</label>
+<div class="relative">
+<input class="block w-full rounded-lg border-0 py-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-slate-800 dark:ring-slate-700 dark:text-white sm:text-sm sm:leading-6 transition-all" placeholder="ex: 10" type="number"/>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+<span class="material-symbols-outlined text-slate-400 text-lg">notifications_active</span>
+</div>
+</div>
+<p class="mt-2 text-xs text-orange-600 dark:text-orange-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                                Alerta será acionado quando o estoque estiver abaixo deste valor.
+                            </p>
+</div>
+</div>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center text-center">
+<div class="w-12 h-12 bg-white dark:bg-slate-700 rounded-full shadow-sm flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary text-2xl">cloud_upload</span>
+</div>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Enviar Imagem do Produto</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">PNG, JPG até 5MB</p>
+<button class="mt-3 text-xs font-semibold text-primary hover:text-primary/80 hover:underline">Selecionar arquivo</button>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900/50 px-8 py-5 border-t border-slate-200 dark:border-slate-800 flex items-center justify-end gap-3 -mx-8 -mb-6 mt-4">
+<button class="rounded-lg px-5 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" type="button">
+                        Cancelar
+                    </button>
+<button class="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all flex items-center gap-2" type="submit">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                        Salvar Produto
+                    </button>
+</div>
+</form>
+</div>
+</main>
+
+</body></html>

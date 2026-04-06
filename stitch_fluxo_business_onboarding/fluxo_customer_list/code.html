@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fluxo+ Lista de Clientes</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#03487c",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1a23",
+                        "primary-light": "#e0f0ff", // Derived light shade for backgrounds
+                        "primary-dark": "#022c4d",  // Derived dark shade
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-body antialiased text-slate-900 dark:text-slate-100 min-h-screen flex">
+<nav class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-[#15232d] flex flex-col justify-between h-screen fixed top-0 left-0 z-10 shrink-0">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-primary aspect-square rounded-full w-10 h-10 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">all_inclusive</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Fluxo+</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">ERP Premium</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white">dashboard</span>
+<span class="text-sm font-medium">Painel</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white">sell</span>
+<span class="text-sm font-medium">Vendas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white">inventory_2</span>
+<span class="text-sm font-medium">Estoque</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white">attach_money</span>
+<span class="text-sm font-medium">Finanças</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary dark:text-white font-medium" href="#">
+<span class="material-symbols-outlined fill-current">group</span>
+<span class="text-sm">Clientes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white">settings</span>
+<span class="text-sm font-medium">Configurações</span>
+</a>
+</div>
+</div>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 bg-center bg-cover" data-alt="User avatar placeholder" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1s58nVInrqxPE6_6PuNY_ILShkkZdAiT31HsFcSP7snR05W1ALZim0zBfoltXlq2AzlC18pnVSXzC5lPMbkEhnlXv50X47q3EHwBWOHskSd2Cu9kqYVpzbdNVY7YnuLlvSLbgJoi6olZ1l8SSGimy9acrC-c5dJtxpP5Gv_iOMS_tr0HeJ7JjfOtRgza6YXEkooqpRYTtyfHAnfgG_GYyOIfhuAyuyx8-e2DwxCntLF9wlmusKCozLJkKKnYcLaH44EOTRcNbtLjD');"></div>
+<div class="flex flex-col overflow-hidden">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">Jane Doe</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 truncate">jane@fluxo.com</p>
+</div>
+</div>
+</div>
+</nav>
+<main class="flex-1 ml-64 p-8 lg:p-12 overflow-y-auto">
+<div class="max-w-7xl mx-auto flex flex-col gap-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-2">Clientes</h2>
+<p class="text-slate-500 dark:text-slate-400 text-base max-w-xl">
+                        Gerencie seus relacionamentos com clientes, acompanhe o histórico de gastos e atualize informações de contato.
+                    </p>
+</div>
+<button class="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2 shadow-sm transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    Novo Cliente
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="bg-white dark:bg-[#15232d] p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Total de Clientes</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">2.543</p>
+<div class="flex items-center gap-1 text-emerald-600 text-xs font-medium mt-1">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>+12% este mês</span>
+</div>
+</div>
+<div class="bg-white dark:bg-[#15232d] p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Clientes Ativos</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">1.850</p>
+<div class="flex items-center gap-1 text-emerald-600 text-xs font-medium mt-1">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>+5% este mês</span>
+</div>
+</div>
+<div class="bg-white dark:bg-[#15232d] p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Novos Leads</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">320</p>
+<div class="flex items-center gap-1 text-slate-400 text-xs font-medium mt-1">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+<span>Sem mudança</span>
+</div>
+</div>
+<div class="bg-white dark:bg-[#15232d] p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Taxa de Churn</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">1,2%</p>
+<div class="flex items-center gap-1 text-red-500 text-xs font-medium mt-1">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span>-0,5% este mês</span>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#15232d] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-col md:flex-row gap-4 justify-between items-center">
+<div class="relative w-full md:w-96">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2.5 border border-slate-200 dark:border-slate-700 rounded-lg leading-5 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-shadow" placeholder="Buscar clientes..." type="text"/>
+</div>
+<div class="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-lg w-full md:w-auto overflow-x-auto">
+<button class="flex-1 md:flex-none px-4 py-1.5 rounded-md text-sm font-medium bg-white dark:bg-[#15232d] text-primary dark:text-white shadow-sm transition-all whitespace-nowrap">Todos</button>
+<button class="flex-1 md:flex-none px-4 py-1.5 rounded-md text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-all whitespace-nowrap">Ativos</button>
+<button class="flex-1 md:flex-none px-4 py-1.5 rounded-md text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-all whitespace-nowrap">Leads</button>
+<button class="flex-1 md:flex-none px-4 py-1.5 rounded-md text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-all whitespace-nowrap">Inativos</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-slate-200 dark:divide-slate-800">
+<thead class="bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider w-1/4" scope="col">
+                                    Nome
+                                </th>
+<th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider w-1/5" scope="col">
+                                    Contato
+                                </th>
+<th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider w-1/6" scope="col">
+                                    Telefone
+                                </th>
+<th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider w-1/6" scope="col">
+                                    Status
+                                </th>
+<th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider w-1/6" scope="col">
+                                    Total Gasto
+                                </th>
+<th class="relative px-6 py-4" scope="col">
+<span class="sr-only">Ações</span>
+</th>
+</tr>
+</thead>
+<tbody class="bg-white dark:bg-[#15232d] divide-y divide-slate-200 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 rounded-full flex items-center justify-center font-bold text-sm">AC</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-slate-900 dark:text-white">Acme Corp</div>
+<div class="text-xs text-slate-500 dark:text-slate-400">ID: #CUS-001</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">contact@acme.com</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">+1 (555) 0123</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                                        Ativo
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 dark:text-white font-medium">
+                                    R$ 12.450,00
+                                </td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-slate-400 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded-full flex items-center justify-center font-bold text-sm">GI</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-slate-900 dark:text-white">Globex Inc</div>
+<div class="text-xs text-slate-500 dark:text-slate-400">ID: #CUS-002</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">info@globex.com</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">+1 (555) 0124</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                                        Ativo
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 dark:text-white font-medium">
+                                    R$ 8.200,00
+                                </td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-slate-400 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-300 rounded-full flex items-center justify-center font-bold text-sm">SC</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-slate-900 dark:text-white">Soylent Corp</div>
+<div class="text-xs text-slate-500 dark:text-slate-400">ID: #CUS-003</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">sales@soylent.com</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">+1 (555) 0125</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
+                                        Lead
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 dark:text-white font-medium">
+                                    R$ 0,00
+                                </td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-slate-400 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 rounded-full flex items-center justify-center font-bold text-sm">IN</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-slate-900 dark:text-white">Initech</div>
+<div class="text-xs text-slate-500 dark:text-slate-400">ID: #CUS-004</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">support@initech.com</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">+1 (555) 0126</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                                        Ativo
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 dark:text-white font-medium">
+                                    R$ 540,00
+                                </td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-slate-400 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-300 rounded-full flex items-center justify-center font-bold text-sm">UC</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-slate-900 dark:text-white">Umbrella Corp</div>
+<div class="text-xs text-slate-500 dark:text-slate-400">ID: #CUS-005</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">bio@umbrella.com</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">+1 (555) 0127</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300">
+                                        Inativo
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 dark:text-white font-medium">
+                                    R$ 50.000,00
+                                </td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-slate-400 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-300 rounded-full flex items-center justify-center font-bold text-sm">SI</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-slate-900 dark:text-white">Stark Ind</div>
+<div class="text-xs text-slate-500 dark:text-slate-400">ID: #CUS-006</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">tony@stark.com</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-slate-600 dark:text-slate-300">+1 (555) 0128</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                                        Ativo
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 dark:text-white font-medium">
+                                    R$ 99.999,00
+                                </td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-slate-400 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-4 py-3 flex items-center justify-between border-t border-slate-200 dark:border-slate-800">
+<div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+<div>
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                                Mostrando <span class="font-medium">1</span> a <span class="font-medium">6</span> de <span class="font-medium">97</span> resultados
+                            </p>
+</div>
+<div>
+<nav aria-label="Pagination" class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+<a class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#15232d] text-sm font-medium text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800" href="#">
+<span class="sr-only">Anterior</span>
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</a>
+<a aria-current="page" class="z-10 bg-primary/10 dark:bg-primary/20 border-primary text-primary dark:text-white relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                    1
+                                </a>
+<a class="bg-white dark:bg-[#15232d] border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                    2
+                                </a>
+<a class="bg-white dark:bg-[#15232d] border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                    3
+                                </a>
+<span class="relative inline-flex items-center px-4 py-2 border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#15232d] text-sm font-medium text-slate-700 dark:text-slate-400">
+                                    ...
+                                </span>
+<a class="bg-white dark:bg-[#15232d] border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                    10
+                                </a>
+<a class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#15232d] text-sm font-medium text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800" href="#">
+<span class="sr-only">Próximo</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+</body></html>

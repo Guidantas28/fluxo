@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fluxo+ PDV - Nova Venda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#03487c",
+                        "primary-light": "#e6eef4",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1a23",
+                        "success": "#34B86E",
+                        "success-hover": "#2da361",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light text-slate-900 font-display antialiased h-screen flex flex-col overflow-hidden">
+<header class="flex shrink-0 items-center justify-between whitespace-nowrap border-b border-slate-200 bg-white px-6 py-3 shadow-sm z-20">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-2xl">point_of_sale</span>
+</div>
+<h2 class="text-slate-900 text-xl font-bold leading-tight">Nova Venda</h2>
+</div>
+<div class="flex items-center gap-8">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 hover:text-primary text-sm font-medium transition-colors" href="#">Dashboard</a>
+<a class="text-slate-500 hover:text-primary text-sm font-medium transition-colors" href="#">Estoque</a>
+<a class="text-slate-500 hover:text-primary text-sm font-medium transition-colors" href="#">Relatórios</a>
+<a class="text-slate-500 hover:text-primary text-sm font-medium transition-colors" href="#">Configurações</a>
+</nav>
+<div class="h-8 w-[1px] bg-slate-200 hidden md:block"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold text-slate-900">Alex Morgan</p>
+<p class="text-xs text-slate-500">Caixa #04</p>
+</div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-slate-100 shadow-sm" data-alt="Foto de perfil do usuário" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAedeeg_EisaSLFWRBEklrpmhnFtzRMx_APti8H7GFEGf79aot2N7424HZuS6ylclRUxziuGAzCVtYaFHdF0DBP6oGmtzMprWmU5QltzrF0vDMsBWMeyY8JB_Oib2RnCTaAAP-szWr6HLz3H_2wD4lIPv-BaTgHvxqxBdVLmVmYNLb6ITZ7HWpAXRIRzqTe_ziqGW4kdjjQYgRtv0RQDLHl1Uaqa70ZUDXU6x-YgOM8IK_B6PVwseqCAT7l-JWrnMB96iwhMESwzIj-");'></div>
+</div>
+</div>
+</header>
+<main class="flex flex-1 overflow-hidden">
+<section class="flex flex-col flex-1 bg-background-light h-full overflow-hidden border-r border-slate-200">
+<div class="p-5 pb-2">
+<div class="flex flex-col gap-4">
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="block w-full rounded-xl border-slate-200 bg-white py-3 pl-10 pr-4 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary shadow-sm text-base" placeholder="Buscar produtos..." type="text"/>
+<div class="absolute inset-y-0 right-2 flex items-center">
+<button class="p-1 text-slate-400 hover:text-primary rounded-lg hover:bg-slate-100">
+<span class="material-symbols-outlined">barcode_reader</span>
+</button>
+</div>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="flex shrink-0 items-center gap-2 rounded-lg bg-primary text-white px-4 py-2 text-sm font-medium shadow-sm transition-all">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+                        Todos os itens
+                    </button>
+<button class="flex shrink-0 items-center gap-2 rounded-lg bg-white text-slate-600 border border-slate-200 hover:border-primary/30 hover:bg-primary/5 px-4 py-2 text-sm font-medium transition-all">
+<span class="material-symbols-outlined text-[18px]">devices</span>
+                        Eletrônicos
+                    </button>
+<button class="flex shrink-0 items-center gap-2 rounded-lg bg-white text-slate-600 border border-slate-200 hover:border-primary/30 hover:bg-primary/5 px-4 py-2 text-sm font-medium transition-all">
+<span class="material-symbols-outlined text-[18px]">apparel</span>
+                        Roupas
+                    </button>
+<button class="flex shrink-0 items-center gap-2 rounded-lg bg-white text-slate-600 border border-slate-200 hover:border-primary/30 hover:bg-primary/5 px-4 py-2 text-sm font-medium transition-all">
+<span class="material-symbols-outlined text-[18px]">chair</span>
+                        Casa
+                    </button>
+<button class="flex shrink-0 items-center gap-2 rounded-lg bg-white text-slate-600 border border-slate-200 hover:border-primary/30 hover:bg-primary/5 px-4 py-2 text-sm font-medium transition-all">
+<span class="material-symbols-outlined text-[18px]">local_cafe</span>
+                        Alimentação
+                    </button>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-5 pt-0">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+<button class="group flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-md transition-all text-left">
+<div class="aspect-[4/3] w-full bg-slate-100 relative overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300" data-alt="Headphones product image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB6Sb-V5_XBFS7BcMFrUCgveoQXJgCKrzLoYxJNNU5074MjefcNlS0xIUuQfdyR8RaaSp5vMwlcq8GF103_f71JL9kBQ3ASA8egc5ME_nh0FbgIb76Vuqr8bSIFj_I8ElFCGSjGvJTMb2ZqOg9lf9c8M3D5vC3DV-cm0jUXnoNrAhfRyR5dLo7299awNv3ubTqwHp7JLxMDaVrvfR5CEqLu7dV921OKjP-tgMbIoz8LEzBTjhvrpAyA2UF9JVNOchTlqPGo_6ORYTz1");'></div>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm rounded-md px-1.5 py-0.5 text-xs font-bold text-slate-700 shadow-sm">12 em estoque</div>
+</div>
+<div class="p-3 flex flex-col gap-1 flex-1 w-full">
+<h3 class="text-slate-900 font-medium text-sm truncate w-full">Fones Wireless</h3>
+<p class="text-slate-500 text-xs">Eletrônicos</p>
+<div class="mt-auto pt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-base">R$ 59,90</span>
+<div class="bg-primary/10 text-primary rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+</div>
+</button>
+<button class="group flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-md transition-all text-left">
+<div class="aspect-[4/3] w-full bg-slate-100 relative overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300" data-alt="Smart Watch product image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAW7ZPJIUemJnEwMuU091tnhu-OCYXasJTrGgcfEe74yUYw7ooCRzXElvlc8x7mYNUQkAizAFJ7GzGgPXdQh8rLMQZrWh9EJwNUOoxk53pmR5OFz3W5cYbk92NBDyrY9eeKknixBjdx_1Z3UL810_8U0YCqyGWY8M7zQcCzJiKZUtnRpiwQ5FkBaMyyk9xYT70LWpeEiVv0o7GUNZJ0e-sEFpbksFqWXVfwRLjXe785v3kC2AXramcsYgccqlTKm_h7Y34t_VpB7Tt4");'></div>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm rounded-md px-1.5 py-0.5 text-xs font-bold text-slate-700 shadow-sm">8 em estoque</div>
+</div>
+<div class="p-3 flex flex-col gap-1 flex-1 w-full">
+<h3 class="text-slate-900 font-medium text-sm truncate w-full">Smart Watch Série 5</h3>
+<p class="text-slate-500 text-xs">Eletrônicos</p>
+<div class="mt-auto pt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-base">R$ 129,99</span>
+<div class="bg-primary/10 text-primary rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+</div>
+</button>
+<button class="group flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-md transition-all text-left">
+<div class="aspect-[4/3] w-full bg-slate-100 relative overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300" data-alt="Cotton T-shirt product image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVx3pxP_9rDh9gAw5lc_YCcFuj4-HyaKcxWFIn6puB6YQdALdYYcAqrGgQCvYMKOW2hWta1JNbg0J3C3qd2ouDqhyGn300eU6CSrYiw0dwXO6M0kmWCsBSCia_UuzcAL_05TAeyIy3QfIEg2p79-LTr-O-umR3Vp1djiqaS_--Z_Q-RYKpZSpS7AT-R7sYwhiVEAs4MVnQHUDn4v3inXkq89tu_C2uR50TpBPJy9N1DiZ-VMi7RAY99Mvc5DFVZhPSeherZNdbGeQo");'></div>
+</div>
+<div class="p-3 flex flex-col gap-1 flex-1 w-full">
+<h3 class="text-slate-900 font-medium text-sm truncate w-full">Camiseta Algodão Premium</h3>
+<p class="text-slate-500 text-xs">Roupas</p>
+<div class="mt-auto pt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-base">R$ 19,90</span>
+<div class="bg-primary/10 text-primary rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+</div>
+</button>
+<button class="group flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-md transition-all text-left">
+<div class="aspect-[4/3] w-full bg-slate-100 relative overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300" data-alt="Ceramic Mug product image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJgD6LcgXYxfSiL8FTV3Vztap365xYoKY0AWZzZ8TRfmJ54k2v0OTcPLolTpV4UAygMDbZFZVb8dw195fqhBQB8zrUJXBIEYMvzz7E8_4UfcR9Bt0mYtUd_mGfXZ0K71yCVFPzrEizNNuhud4oBLeB_Zsp7UbU7Ix4v18KcLxRE9DjXyd6UnpBU1Cl7hF1tryzI4zcjccTiFdfnIDB-E4wnzDVGlJIsniOkZjNboVfkqRL2zeeMFOwjRWudrvFHJVgyw9tQlIjyYIe");'></div>
+</div>
+<div class="p-3 flex flex-col gap-1 flex-1 w-full">
+<h3 class="text-slate-900 font-medium text-sm truncate w-full">Caneca de Cerâmica</h3>
+<p class="text-slate-500 text-xs">Casa</p>
+<div class="mt-auto pt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-base">R$ 12,50</span>
+<div class="bg-primary/10 text-primary rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+</div>
+</button>
+<button class="group flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-md transition-all text-left">
+<div class="aspect-[4/3] w-full bg-slate-100 relative overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300" data-alt="Leather Wallet product image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBN3Iq0j_c3NRIKodOAobkyrSr2xvz1jOeM6QuOa-934DJMWfIBbqZ_c_vS4ygg5hyFPTZiFkotIwoB0aoigPH4yzEf8vsfmk8aveGhHLOmkSngaYELFmes1ethZAMxbk9NA1efMT5FAHPMAQFUtzQ19Z0hB84-_OmpZf29ox_nQ00Gwj46ckaHQeYN7ZHcCW-wKTjrk98YtU8qwkMf81GtHFZzxwVnzjq-TvVX-Asg_KhBpe8Vl_LBmtz6PubIkRq9qwzj49Kc0K6C");'></div>
+</div>
+<div class="p-3 flex flex-col gap-1 flex-1 w-full">
+<h3 class="text-slate-900 font-medium text-sm truncate w-full">Carteira de Couro Slim</h3>
+<p class="text-slate-500 text-xs">Acessórios</p>
+<div class="mt-auto pt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-base">R$ 45,00</span>
+<div class="bg-primary/10 text-primary rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+</div>
+</button>
+<button class="group flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-md transition-all text-left">
+<div class="aspect-[4/3] w-full bg-slate-100 relative overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300" data-alt="USB-C Cable product image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAqIh5pZUyz1X3yB3Zu9UnIu_iCQGEvJOT99-G3hHAOqovy-2SrmO5NrJXv1ixuV0MlHxrsvIHhZmOrHtjRfIRMc07SRPhkYZzBsSo5aTxmXvo0GG9fkZ0IPY3x7dhMWQLI5RwtEMPXc5Hl_DyiDKe8mVwsnQ-YOdDWNRVBwlVvdAfP_uu3ShCZl-O2hUVI4qCESMGhiKrbh7AfEdQXayXBsRCEng-xR7QYhc0fsVfqI5FyMIYjJRh3D7LF5WmnXaIRoWOI7Hpu3DqO");'></div>
+<div class="absolute top-2 right-2 bg-red-100 rounded-md px-1.5 py-0.5 text-xs font-bold text-red-700 shadow-sm">-20%</div>
+</div>
+<div class="p-3 flex flex-col gap-1 flex-1 w-full">
+<h3 class="text-slate-900 font-medium text-sm truncate w-full">Cabo USB-C Trançado</h3>
+<p class="text-slate-500 text-xs">Acessórios</p>
+<div class="mt-auto pt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-base">R$ 9,90</span>
+<div class="bg-primary/10 text-primary rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+</div>
+</button>
+<button class="group flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-md transition-all text-left">
+<div class="aspect-[4/3] w-full bg-slate-100 relative overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300" data-alt="Notebook product image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCRxZSIjkdxyF_5iJvdhjKnOVb9ACcrCsHc-IZwdQkuUdd7Cql6tGy3xxx7i1WLXoOTNATykqz50i_LrwkL573Azgdq9ZmAjQz2DO5Tfp3uQp0KfOhHIRhqpbtiygnJ9PiO-4k9MWEn0yWWULjfoujhsB1tLTkF_ySPyjLghbG8OwaoaYSjZbZ_54yFIQt38LNie7fBBLMhFZdZfqKVkOlHKmHBAk9JF7O82hTF0tYp08J-ke6DC3jCQRNpM5kVxxFROGxe8qkjqzs");'></div>
+</div>
+<div class="p-3 flex flex-col gap-1 flex-1 w-full">
+<h3 class="text-slate-900 font-medium text-sm truncate w-full">Caderno Moleskine</h3>
+<p class="text-slate-500 text-xs">Escritório</p>
+<div class="mt-auto pt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-base">R$ 24,00</span>
+<div class="bg-primary/10 text-primary rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+</div>
+</button>
+<button class="group flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-md transition-all text-left">
+<div class="aspect-[4/3] w-full bg-slate-100 relative overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300" data-alt="Coffee beans product image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAjpxRHgJJklM-vANDVuWbkM9xqXywsCgfh9vrPsvlwX8BTqTZuRHR4jcAh_72mxAWb1wzyKiRPyFxsiZOKjGSfPXeuP_3eaSq8eD19KeFRF_CuXTDDrG51e23TdULTSPp9OdlMUeXSgDjFQ9xfjvxeftSVzrD_Z8WBXnty01uMBWPJJRoBtT6uOVJ4rBR54LMeaSeQPH9Md5fM8nXuBwoJyhpIG1fjsSBXlFJtQhAl_zwSmoWrGli_MsMdMyAKo5zo4gn4UfVeWk9h");'></div>
+</div>
+<div class="p-3 flex flex-col gap-1 flex-1 w-full">
+<h3 class="text-slate-900 font-medium text-sm truncate w-full">Grãos de Café Espresso</h3>
+<p class="text-slate-500 text-xs">Alimentação</p>
+<div class="mt-auto pt-2 flex items-center justify-between">
+<span class="text-primary font-bold text-base">R$ 15,50</span>
+<div class="bg-primary/10 text-primary rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+</div>
+</button>
+</div>
+</div>
+</section>
+<aside class="w-[420px] bg-white shadow-xl flex flex-col shrink-0 z-10 border-l border-slate-200">
+<div class="p-5 border-b border-slate-100">
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-bold text-slate-800">Venda Atual</h3>
+<div class="text-xs font-medium text-slate-400 bg-slate-100 px-2 py-1 rounded">#ORD-2094</div>
+</div>
+<button class="flex w-full items-center justify-between p-3 rounded-lg border border-slate-200 bg-slate-50 hover:border-primary/50 hover:bg-white transition-all group">
+<div class="flex items-center gap-3">
+<div class="bg-primary/10 text-primary rounded-full p-2">
+<span class="material-symbols-outlined text-xl">person_add</span>
+</div>
+<div class="text-left">
+<p class="text-sm font-semibold text-slate-900 group-hover:text-primary">Selecionar Cliente</p>
+<p class="text-xs text-slate-500">Vincular venda a um perfil</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">chevron_right</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-5 py-2">
+<div class="flex flex-col gap-3">
+<div class="flex gap-3 items-start p-3 rounded-lg border border-transparent hover:border-slate-100 hover:bg-slate-50 transition-colors group">
+<div class="w-12 h-12 bg-slate-100 rounded-md bg-center bg-cover shrink-0" data-alt="Headphones thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjGK15BYE0T96hh-jW0Ihl4XSdMzK16b2hUINAnF5_8dwOL-oRBLhD43nyL3SutRLbBWFLlKj1h9ND_c5T3X-rLI2nT3_szfZzRM647feR7GV9FWA12Rg7i2HqnLEuNOb-5iG43FRsChdyim-FvHpeMUhuOPlQDmyeK9RcjtuGe0vIQjSJBer0F0hvkNaEQUO3n8mFS0JFpX9WZmOvchjh9gQGdiQzKD-GqExQCaLsXgJxOVeNYsJ7wTDVSOuSPzYh2UO45NsqVaUZ");'></div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-sm font-medium text-slate-900 truncate pr-2">Fones Wireless</h4>
+<span class="text-sm font-bold text-slate-900">R$ 59,90</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="text-xs text-slate-500">R$ 59,90 x 1</div>
+<div class="flex items-center bg-white rounded-md border border-slate-200 shadow-sm h-7">
+<button class="w-7 h-full flex items-center justify-center text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-l-md transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">remove</span>
+</button>
+<input class="w-8 h-full text-center text-sm font-medium border-0 p-0 text-slate-900 focus:ring-0" type="text" value="1"/>
+<button class="w-7 h-full flex items-center justify-center text-slate-500 hover:text-primary hover:bg-primary/10 rounded-r-md transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-3 items-start p-3 rounded-lg border border-transparent hover:border-slate-100 hover:bg-slate-50 transition-colors group">
+<div class="w-12 h-12 bg-slate-100 rounded-md bg-center bg-cover shrink-0" data-alt="T-shirt thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATOpcyx8JV63g_BTRNr1GjAPdFusis0M1Msmv3UG3hd-PA6ITlHoyQOb91mmvZDHCH6WzGsMI2sU9EO1m900eEJIVnfv5JZxJ5ATYz-sEk7gSKnYG9ZgNv4za47YiihEHg2lp4dJJ1sj8NO1Q-cN8-OVVNmrzWqrU0Qhfjcx6zaMftpnxsZp408h2E68dc6MGtXaqCfCiuJ6oYkH72XFRTkNkTDwaaHrcL3iX8KtTHhiximtEEGRrgsKC1Hi446k5B4NZ8xLQSB3hJ");'></div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-sm font-medium text-slate-900 truncate pr-2">Camiseta Algodão Premium</h4>
+<span class="text-sm font-bold text-slate-900">R$ 39,80</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="text-xs text-slate-500">R$ 19,90 x 2</div>
+<div class="flex items-center bg-white rounded-md border border-slate-200 shadow-sm h-7">
+<button class="w-7 h-full flex items-center justify-center text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-l-md transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">remove</span>
+</button>
+<input class="w-8 h-full text-center text-sm font-medium border-0 p-0 text-slate-900 focus:ring-0" type="text" value="2"/>
+<button class="w-7 h-full flex items-center justify-center text-slate-500 hover:text-primary hover:bg-primary/10 rounded-r-md transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-3 items-start p-3 rounded-lg border border-transparent hover:border-slate-100 hover:bg-slate-50 transition-colors group">
+<div class="w-12 h-12 bg-slate-100 rounded-md bg-center bg-cover shrink-0" data-alt="USB cable thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAaR-DfFnfJGOfpcpHEkAY0o81itUo9XW2q3hM3D3K3MMDpGcYqPH_-48DpTvZ8GK_jaPxMZNywIA5gCQKnHYc1HwAv_ZU72Yo4fjYkkFDYXQWlvgEoibmvBp7pNsjA08sUPy37Hs7wtsaPME5xvRPh1ihUgT_ZWypdzaZS7X0DLIIC9gafX619ytzSsukTZB0gp4NySk7hue6dLI9bwXNw_232Dc_6A0l9kMVDGeASVh3M-2f_tLpTLb78x-GtAnvRrWVusaItJ0Qb");'></div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-sm font-medium text-slate-900 truncate pr-2">Cabo USB-C Trançado</h4>
+<span class="text-sm font-bold text-slate-900">R$ 9,90</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="text-xs text-slate-500">R$ 9,90 x 1</div>
+<div class="flex items-center bg-white rounded-md border border-slate-200 shadow-sm h-7">
+<button class="w-7 h-full flex items-center justify-center text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-l-md transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">remove</span>
+</button>
+<input class="w-8 h-full text-center text-sm font-medium border-0 p-0 text-slate-900 focus:ring-0" type="text" value="1"/>
+<button class="w-7 h-full flex items-center justify-center text-slate-500 hover:text-primary hover:bg-primary/10 rounded-r-md transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto bg-slate-50 p-5 border-t border-slate-200">
+<div class="space-y-2 mb-6">
+<div class="flex justify-between text-sm text-slate-500">
+<span>Subtotal</span>
+<span>R$ 109,60</span>
+</div>
+<div class="flex justify-between text-sm text-slate-500">
+<span>Impostos (8%)</span>
+<span>R$ 8,77</span>
+</div>
+<div class="flex justify-between text-sm text-slate-500">
+<span>Desconto</span>
+<span class="text-green-600 font-medium">-R$ 0,00</span>
+</div>
+<div class="flex justify-between items-end pt-2 border-t border-slate-200 mt-2">
+<span class="text-lg font-medium text-slate-800">Total</span>
+<span class="text-3xl font-bold text-slate-900">R$ 118,37</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mb-4">
+<button class="flex flex-col items-center justify-center py-3 px-1 rounded-lg border border-slate-200 bg-white hover:border-primary hover:bg-primary/5 hover:text-primary transition-all text-slate-600 shadow-sm">
+<span class="material-symbols-outlined mb-1">qr_code_2</span>
+<span class="text-xs font-bold">Pix</span>
+</button>
+<button class="flex flex-col items-center justify-center py-3 px-1 rounded-lg border border-slate-200 bg-white hover:border-primary hover:bg-primary/5 hover:text-primary transition-all text-slate-600 shadow-sm">
+<span class="material-symbols-outlined mb-1">credit_card</span>
+<span class="text-xs font-bold">Cartão</span>
+</button>
+<button class="flex flex-col items-center justify-center py-3 px-1 rounded-lg border border-slate-200 bg-white hover:border-primary hover:bg-primary/5 hover:text-primary transition-all text-slate-600 shadow-sm">
+<span class="material-symbols-outlined mb-1">payments</span>
+<span class="text-xs font-bold">Dinheiro</span>
+</button>
+</div>
+<button class="w-full bg-success hover:bg-success-hover text-white h-14 rounded-xl text-lg font-bold shadow-lg shadow-success/30 flex items-center justify-center gap-2 transition-transform active:scale-[0.98]">
+<span>Finalizar Venda</span>
+<span class="material-symbols-outlined">check_circle</span>
+</button>
+</div>
+</aside>
+</main>
+
+</body></html>
