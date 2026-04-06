@@ -11,7 +11,7 @@ Stack: **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, **Supabase** 
 - **`src/lib/supabase/`**: clientes browser e servidor (`@supabase/ssr`).
 - **`src/lib/auth/`**: leitura do perfil (`profiles`) e checagem de admin.
 - **`src/components/`**: UI reutilizável e shell (sidebar, topbar).
-- **`middleware.ts`**: renovação de sessão e bloqueio de rotas privadas.
+- **`src/proxy.ts`** (Next.js 16+): renovação de sessão e bloqueio de rotas privadas (substitui o antigo `middleware.ts` no Edge).
 - **`supabase/schema.sql`**: modelo completo, triggers, RLS e funções `finalize_sale` / `cancel_sale`.
 
 ## Banco de dados (Supabase)
@@ -45,7 +45,7 @@ npm install
 npm run dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000). Sem variáveis de ambiente, o middleware redireciona para `/login` (modo degradado).
+Abra [http://localhost:3000](http://localhost:3000). Sem variáveis de ambiente, o proxy redireciona para `/login` (modo degradado).
 
 ## Perfis
 
