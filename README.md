@@ -75,3 +75,4 @@ Abra [http://localhost:3000](http://localhost:3000). Sem variáveis de ambiente,
 
 - Se o SQL do Supabase reclamar da sintaxe do trigger (`execute function`), troque para `execute procedure` conforme a versão do Postgres do projeto.
 - Rascunhos de venda são reutilizados na mesma aba via `sessionStorage` (`fluxo-draft-sale-id`) para reduzir lixo; use **Descartar rascunho** para cancelar.
+- Iteração 2: exemplo de alteração mínima no repositório (exercício de branches e merge).
